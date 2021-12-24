@@ -1,5 +1,5 @@
-Game Engines
-============
+Game Engines (old docs)
+=======================
 
 This page contains documentation for game engines. Game engines have sets of game-specific Tickflow operations starting at ``0x100``,
 as well as subroutines. Game engines can be loaded in remixes and rhythm games using the ``engine`` operation.

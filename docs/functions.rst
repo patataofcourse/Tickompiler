@@ -1,4 +1,4 @@
-Known Global Tickflow Operations
+Global operations
 ================================
 
 This is a list of all Tickflow operations which have known functions and have been given a global alias.

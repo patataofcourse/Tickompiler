@@ -10,11 +10,23 @@ Tickompiler is a compiler and decompiler for Tickflow, a language constructed fr
 used by the game Rhythm Heaven Megamix for the Nintendo 3DS to create the sequence of events in its rhythm games and
 remixes. Tickompiler allows easy editing of these rhythm games in a more human-readable format.
 
+About Tickflow
+--------------
+
 .. toctree::
    :maxdepth: 2
-   :caption: Tickflow Documentation
+   :caption: About Tickflow
 
    basic_syntax
    concepts
+
+Command and subroutine reference
+--------------------------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Commands and subroutines
+
    functions
-   engines
+   engines_old
+   engines/spaceball
