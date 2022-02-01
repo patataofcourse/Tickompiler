@@ -4,17 +4,18 @@ import java.nio.ByteBuffer
 import kotlin.math.roundToInt
 
 object GamePutter {
+	const val BASE_OFFSET = 0x060A9002
 
 	fun putGame(base: ByteBuffer, gameContents: ByteBuffer, s: Int): List<Int> {
 		val tableIndex = gameContents.getInt(0)
 		val start = gameContents.getInt(4)
 		val assets = gameContents.getInt(8)
 		if (tableIndex >= 0x100) {
-			base.putInt(0x3358 + 36*(tableIndex-0x100) + 4, 0xC000000 + start + s)
-			base.putInt(0x3358 + 36*(tableIndex-0x100) + 8, 0xC000000 + assets + s)
+			base.putInt(0x3358 + 36*(tableIndex-0x100) + 4, BASE_OFFSET + start + s)
+			base.putInt(0x3358 + 36*(tableIndex-0x100) + 8, BASE_OFFSET + assets + s)
 		} else {
-			base.putInt(52 * tableIndex + 4, 0xC000000 + start + s)
-			base.putInt(52 * tableIndex + 8, 0xC000000 + assets + s)
+			base.putInt(52 * tableIndex + 4, BASE_OFFSET + start + s)
+			base.putInt(52 * tableIndex + 8, BASE_OFFSET + assets + s)
 		}
 
 		val result = mutableListOf<Int>()
@@ -42,7 +43,7 @@ object GamePutter {
 			val args: MutableList<Int> = (0 until argCount).map {
 				val arg = gameContents.int
 				if (it in adjArgs) {
-					arg + 0xC000000 + s
+					arg + BASE_OFFSET + s
 				} else {
 					arg
 				}
@@ -81,7 +82,7 @@ object GamePutter {
 			val one = base.getInt(16*i + 0x1588)
 			val two = base.getInt(16*i + 0x1588 + 4)
 			if (one in ids || two in ids) {
-				base.putInt(16*i + 0x1588 + 12, 0xC000000 + s)
+				base.putInt(16*i + 0x1588 + 12, BASE_OFFSET + s)
 			}
 		}
 		return result
