@@ -4,7 +4,7 @@ import java.nio.ByteBuffer
 import kotlin.math.roundToInt
 
 object GamePutter {
-	const val BASE_OFFSET = 0x060A9020
+	const val BASE_OFFSET = 0x060A9008
 
 	fun putGame(base: ByteBuffer, gameContents: ByteBuffer, s: Int): List<Int> {
 		val tableIndex = gameContents.getInt(0)
